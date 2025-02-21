@@ -2,25 +2,28 @@ package Jobsheet2;
 
 public class DosenMain25 {
     public static void main(String[] args) {
-        Dosen25 mhs1 = new Dosen25();
-        mhs1.idDosen = "ALSD";
-        mhs1.nama = "Algoritma dan Struktur Data";
-        mhs1.statusAktif = true;
-        mhs1.tahunBergabung = 2000;
-        bidangKeahlian = "Data Science";
+        Dosen25 dosen1 = new Dosen25();
+        dosen1.idDosen = "WSH";
+        dosen1.nama = "Wahyudi Satriawan H";
+        dosen1.statusAktif = false;
+        dosen1.tahunBergabung = 2005;
+        dosen1.bidangKeahlian = "Data Science";
 
-        mhs1.tampilkanInformasi();
-        mhs1.ubahSKS(2);
-        mhs1.kurangiJam(2);
+        dosen1.tampilkanInformasi();
+        dosen1.setStatusAktif(true);
+        dosen1.hitungMasaKerja(2025);
+        dosen1.ubahKeahlian("AI Engineer");
         System.out.println("==== Tampilan Informasi Yang Telah Diupdate ====");
         System.out.println("================================================");
-        mhs1.tampilkanInformasi();
+        dosen1.tampilkanInformasi();
         
-        MataKuliah25 mhs2 = new MataKuliah25("PRAKALSD", "Praktikum Algoritma dan Struktur Data",2, 4);
-        mhs2.tampilkanInformasi();
-        mhs1.ubahSKS(3);
-        mhs1.tambahJam(2);
+        Dosen25 dosen2 = new Dosen25("ACH", "PRAKALSD", false, 2000, "AI");
+        dosen2.tampilkanInformasi();
+        dosen2.setStatusAktif(true);
+        dosen2.hitungMasaKerja(2);
+        dosen2.ubahKeahlian("AI Engginer");
         System.out.println("==== Tampilan Informasi Yang Telah Diupdate ====");
         System.out.println("================================================");
-        mhs2.tampilkanInformasi();
+        dosen2.tampilkanInformasi();
+    }
 }
