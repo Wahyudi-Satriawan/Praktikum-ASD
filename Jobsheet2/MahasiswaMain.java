@@ -14,7 +14,11 @@ public class MahasiswaMain {
         mhs1.tampilkanInformasi();
 
         Mahasiswa25 mhs2 = new Mahasiswa25("Annisa Nabila", "2141720160",3.25, "TI 2L");
-        mhs2.updateIpk(3.30);
+        mhs2.updateIpk(4.30);
         mhs2.tampilkanInformasi();
+
+        System.out.println("==================================");
+        Mahasiswa25 mhsWahyu = new Mahasiswa25("Wahyudi Satriawan Hamid", "244107020137", 4.0, "TI 1B");
+        mhsWahyu.tampilkanInformasi();
     }
 }
