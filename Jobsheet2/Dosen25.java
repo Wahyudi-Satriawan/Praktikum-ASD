@@ -29,13 +29,12 @@ public class Dosen25 {
     
     void setStatusAktif(boolean status){
         statusAktif = status;
-        System.out.println("=============== SKS telah diubah ===============");
     }
 
     void hitungMasaKerja(int thnSkrg){
         thnSkrg -= tahunBergabung;
-        tahunBergabung = thnSkrg;
-        System.out.println("Telah bekerja selama " + tahunBergabung + " tahun");
+        System.out.println(idDosen + " Telah bekerja selama " + thnSkrg + " tahun");
+        System.out.println();
     }
 
     void ubahKeahlian(String bidang){
