@@ -14,7 +14,7 @@ public class Matakuliah25 {
         this.sks = sks; 
         this.jumlahJam = jumlahJam;
     }
-    
+
     public void tambahData() {
         Scanner input = new Scanner(System.in);
         System.out.print("Masukkan kode matakuliah: ");
@@ -25,5 +25,13 @@ public class Matakuliah25 {
         this.sks = input.nextInt();
         System.out.print("Masukkan jumlah jam: ");
         this.jumlahJam = input.nextInt();
+    }
+
+    public void cetakInfo() {
+        System.out.println("\nData Matakuliah:");
+        System.out.println("Kode       : " + this.kode);
+        System.out.println("Nama       : " + this.nama);
+        System.out.println("SKS        : " + this.sks);
+        System.out.println("Jumlah Jam : " + this.jumlahJam);
     }
 }
