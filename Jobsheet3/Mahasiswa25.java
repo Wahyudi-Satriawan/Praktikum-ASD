@@ -1,7 +1,5 @@
 package Jobsheet3;
 
-import java.lang.reflect.Method;
-
 public class Mahasiswa25 {
     public String nim;
     public String nama;
@@ -13,5 +11,6 @@ public class Mahasiswa25 {
         System.out.println("Nama  : " + nama);
         System.out.println("Kelas : " + kelas);
         System.out.println("IPK   : " + ipk);
+    
     }
 }

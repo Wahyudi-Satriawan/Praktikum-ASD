@@ -25,6 +25,7 @@ public class Matakuliah25 {
         this.sks = input.nextInt();
         System.out.print("Masukkan jumlah jam: ");
         this.jumlahJam = input.nextInt();
+        input.close();
     }
 
     public void cetakInfo() {

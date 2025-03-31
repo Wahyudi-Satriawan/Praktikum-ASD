@@ -26,5 +26,6 @@ public class MahasiswaDemo25 {
         for(int i = 0; i < 3; i++) {
             arrayOfMahasiswa[i].cetakInfo();
         }
+    sc.close();
     }   
 }

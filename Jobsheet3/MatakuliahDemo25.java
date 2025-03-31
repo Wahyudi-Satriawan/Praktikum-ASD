@@ -24,5 +24,6 @@ public class MatakuliahDemo25 {
             daftarMatakuliah[i].cetakInfo();
             System.out.println("----------------------");
         }
+    sc.close();
     }
 }
