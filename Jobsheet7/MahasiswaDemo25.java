@@ -18,29 +18,40 @@ public class MahasiswaDemo25 {
             System.out.print("Kelas: ");
             String kelas = input.nextLine();
             System.out.print("IPK: ");
-            double ipk = input.nextDouble();
-            input.nextLine();
-
-            Mahasiswa25 m = new Mahasiswa25(nim, nama, kelas, ipk);
-            list.tambah(m);
+            String ip = input.nextLine();
+            double ipk = Double.parseDouble(ip);
+            System.out.println("-------------------------------------------");
+            
+            list.tambah(new Mahasiswa25(nim, nama, kelas, ipk));
         }
-
-        System.out.println("\nData mahasiswa sebelum sorting:");
         list.tampil();
-
-        System.out.println("\nData mahasiswa setelah sorting berdasarkan IPK (DESC):");
-        list.bubbleSort();
-        list.tampil();
+        System.out.println("-------------------------------------------");
+        System.out.println("Pencarian data");
+        System.out.println("-------------------------------------------");
+        System.out.println("Masukkan ipk mahasiswa yang dicari");
+        System.out.println("IPK: ");
+        double cari = input.nextDouble();
         
-        System.out.println("\nData yang sudah terurut menggunakan SELECTION SORT (ASC):");
-        list.selectionSort();
-        list.tampil();
+        System.out.println("Menggunakan sequential searching");
+        double posisi = list.sequentialSearching(cari);
+        int pss= (int)posisi;
+        list.tampilPosisi(cari, pss);
+        list.tampilDataSearch(cari, pss);
         
-        System.out.println("\nData yang sudah terurut menggunakan INSERTION SORT (ASC):");
-        list.insertionSort();
-        list.tampil();
-
-
+        
+        System.out.println("-------------------------------------------");
+        System.out.println("Pencarian data"); 
+        System.out.println("-------------------------------------------");
+        System.out.println("masukkan ipk mahasiswa yang dicari: "); 
+        System.out.print("IPK: "); 
+        cari = input.nextDouble(); 
+        System.out.println("-------------------------------------------");
+        System.out.println("menggunakan binary search"); 
+        System.out.println("-------------------------------------------");
+        double posisi2 = list.findBinarySearch(cari, 0, jumMhs-1); 
+        int pss2= (int)posisi2; 
+        list.tampilPosisi (cari, pss2); 
+        list.tampilDataSearch(cari, pss2);
 
         input.close();
     }
