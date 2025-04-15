@@ -34,19 +34,15 @@ public class DosenDemo25 {
         System.out.println("\n=== Data Semua Dosen ===");
         DataDosen25.dataSemuaDosen(daftarDosen);
 
-        // Menampilkan jumlah dosen berdasarkan jenis kelamin
         System.out.println("\n=== Jumlah Dosen Berdasarkan Jenis Kelamin ===");
         DataDosen25.jumlahDosenPerJenisKelamin(daftarDosen);
 
-        // Menampilkan rata-rata usia dosen berdasarkan jenis kelamin
         System.out.println("\n=== Rata-rata Usia Dosen ===");
         DataDosen25.rerataUsiaDosenPerJenisKelamin(daftarDosen);
 
-        // Menampilkan dosen tertua
         System.out.println("\n=== Dosen Paling Tua ===");
         DataDosen25.infoDosenPalingTua(daftarDosen);
 
-        // Menampilkan dosen termuda
         System.out.println("\n=== Dosen Paling Muda ===");
         DataDosen25.infoDosenPalingMuda(daftarDosen);
         sc.close();
