@@ -2,46 +2,39 @@ package Jobsheet9;
 
 public class StackTugasMahasiswa25 {
     Mahasiswa25[] stack;
-    int size, top;
-        
-    public StackTugasMahasiswa25(int size){
+    int size;
+    int top;
+
+    public StackTugasMahasiswa25(int size) {
         this.size = size;
         stack = new Mahasiswa25[size];
         top = -1;
     }
-    
+
     public boolean isFull() {
-        if (top == size - 1) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-    
-    public boolean isEmpty() {
-        if (top == - 1) {
-            return true;
-        } else {
-            return false;
-        }
+        return top == size - 1;
     }
 
-    public void push (Mahasiswa25 mhs) {
+    public boolean isEmpty() {
+        return top == -1;
+    }
+
+    public void push(Mahasiswa25 mhs) {
         if (!isFull()) {
-            top ++;
+            top++;
             stack[top] = mhs;
         } else {
-            System.out.println("Stack penuh! Tidak bisa menambah tugas lagi.");
+            System.out.println("Stack penuh. Tidak bisa menambahkan data.");
         }
     }
 
     public Mahasiswa25 pop() {
         if (!isEmpty()) {
-            Mahasiswa25 m = stack[top];
+            Mahasiswa25 mhs = stack[top];
             top--;
-            return m;
+            return mhs;
         } else {
-            System.out.println("Stack kosong! Tidak ada tugas untuk dinilai");
+            System.out.println("Stack kosong.");
             return null;
         }
     }
@@ -50,42 +43,32 @@ public class StackTugasMahasiswa25 {
         if (!isEmpty()) {
             return stack[top];
         } else {
-            System.out.println("Stack kosong! Tidak ada tugas yang dikumpulkan");
+            System.out.println("Stack kosong.");
             return null;
         }
     }
 
-    public void print() {
-        for (int i = 0; i <= top; i++) {
-            System.out.println(stack[i].nama + "\t" + stack[i].nim + "\t" + stack[i].kelas);
-        }
-        System.out.println("");
-    }
-
-    public Mahasiswa25 peekBottom() {
+    public Mahasiswa25 bottom() {
         if (!isEmpty()) {
             return stack[0];
         } else {
-            System.out.println("Stack kosong! Tidak ada tugas yang dikumpulkan");
             return null;
         }
     }
 
-    public int jumlahTugas() {
+    public int count() {
         return top + 1;
     }
 
-    public String konversiDesimalKeBiner (int nilai) {
-        StackKonversi stack = new StackKonversi();
-        while (nilai > 0) {
-            int sisa = nilai % 2;
-            stack.push(sisa);
-            nilai = nilai / 2;
+    public void print() {
+        if (!isEmpty()) {
+            for (int i = top; i >= 0; i--) {
+                System.out.println("Mahasiswa ke-" + (i + 1));
+                stack[i].tampil();
+                System.out.println("-------------------");
+            }
+        } else {
+            System.out.println("Stack kosong.");
         }
-        String biner = new String();
-        while (!stack.isEmpty()) {
-            biner += stack.pop();
-        }
-        return biner;
     }
 }

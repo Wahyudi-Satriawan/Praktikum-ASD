@@ -4,60 +4,71 @@ import java.util.Scanner;
 
 public class MahasiswaDemo25 {
     public static void main(String[] args) {
-        StackTugasMahasiswa25 stack = new StackTugasMahasiswa25(5);
         Scanner scan = new Scanner(System.in);
-        int pilih;
+        StackTugasMahasiswa25 stack = new StackTugasMahasiswa25(5);
 
+        int pilih;
         do {
             System.out.println("\nMenu:");
-            System.out.println("1. Mengumpulkan Tugas");
-            System.out.println("2. Menilai Tugas");
-            System.out.println("3. Melihat Tugas Teratas");
-            System.out.println("4. Melihat Daftar Tugas");
-            System.out.println("5. Hitung Total Tugas");
+            System.out.println("1. Tambah Mahasiswa");
+            System.out.println("2. Nilai dan Keluarkan Tugas");
+            System.out.println("3. Lihat Tugas Teratas");
+            System.out.println("4. Lihat Tugas Terbawah");
+            System.out.println("5. Lihat Semua Tugas");
+            System.out.println("6. Lihat Jumlah Tugas");
+            System.out.println("0. Keluar");
             System.out.print("Pilih: ");
             pilih = scan.nextInt();
             scan.nextLine();
+
             switch (pilih) {
                 case 1:
-                    System.out.print("Nama: ");
-                    String nama = scan.nextLine();
-                    System.out.print("NIM: ");
+                    System.out.print("NIM   : ");
                     String nim = scan.nextLine();
-                    System.out.print("Kelas: ");
+                    System.out.print("Nama  : ");
+                    String nama = scan.nextLine();
+                    System.out.print("Kelas : ");
                     String kelas = scan.nextLine();
-                    Mahasiswa25 mhs = new Mahasiswa25 (nama, nim, kelas);
+                    Mahasiswa25 mhs = new Mahasiswa25(nim, nama, kelas);
                     stack.push(mhs);
-                    System.out.printf("Tugas %s berhasil dikumpulkan\n", mhs.nama);
                     break;
                 case 2:
-                    Mahasiswa25 dinilai = stack.pop();
-                    if (dinilai != null) {
-                        System.out.println("Menilai tugas dari" + dinilai.nama);
-                        System.out.print("Masukkan nilai (0-100): ");
+                    Mahasiswa25 mhsPop = stack.pop();
+                    if (mhsPop != null) {
+                        System.out.print("Nilai tugas: ");
                         int nilai = scan.nextInt();
-                        dinilai.tugasDinilai(nilai);
-                        System.out.printf("Nilai Tugas %s adalah %d\n", dinilai.nama, nilai);
+                        mhsPop.tugasDinilai(nilai);
+                        System.out.print("Nilai dalam biner: ");
+                        konversiDesimalKeBiner(nilai);
+                        mhsPop.tampil();
                     }
                     break;
                 case 3:
-                    Mahasiswa25 lihat = stack.peek();
-                    if (lihat != null) {
-                        System.out.println("Tugas terakhir dikumpulkan oleh " + lihat.nama);
-                    }
+                    Mahasiswa25 atas = stack.peek();
+                    if (atas != null) atas.tampil();
                     break;
                 case 4:
-                    System.out.println("Daftar semua tugas");
-                    System.out.println("Nama\tNIM\tKelas");
-                    stack.print();
+                    Mahasiswa25 bawah = stack.bottom();
+                    if (bawah != null) bawah.tampil();
                     break;
                 case 5:
-                    int jumlah = stack.jumlahTugas();
-                    System.out.println("Jumlah tugas: " + jumlah);
+                    stack.print();
                     break;
-                default:
-                    System.out.println("Pilihan tidak valid.");
+                case 6:
+                    System.out.println("Jumlah tugas: " + stack.count());
+                    break;
             }
-        } while (pilih >= 1 && pilih <= 4);
+        } while (pilih != 0);
+
+        scan.close();
+    }
+
+    public static void konversiDesimalKeBiner(int kode) {
+        StackKonversi25 stack = new StackKonversi25(20);
+        while (kode > 0) {
+            stack.push(kode % 2);
+            kode /= 2;
+        }
+        stack.print();
     }
 }
