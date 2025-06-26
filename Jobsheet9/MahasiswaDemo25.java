@@ -10,12 +10,10 @@ public class MahasiswaDemo25 {
         int pilih;
         do {
             System.out.println("\nMenu:");
-            System.out.println("1. Tambah Mahasiswa");
-            System.out.println("2. Nilai dan Keluarkan Tugas");
-            System.out.println("3. Lihat Tugas Teratas");
-            System.out.println("4. Lihat Tugas Terbawah");
-            System.out.println("5. Lihat Semua Tugas");
-            System.out.println("6. Lihat Jumlah Tugas");
+            System.out.println("1. Mengumpulkan Tugas");
+            System.out.println("2. Menilai Tugas");
+            System.out.println("3. Melihat Tugas Teratas");
+            System.out.println("4. Melihat daftar tugas");
             System.out.println("0. Keluar");
             System.out.print("Pilih: ");
             pilih = scan.nextInt();
@@ -33,14 +31,15 @@ public class MahasiswaDemo25 {
                     stack.push(mhs);
                     break;
                 case 2:
-                    Mahasiswa25 mhsPop = stack.pop();
-                    if (mhsPop != null) {
+                    Mahasiswa25 dinilai = stack.pop();
+                    if (dinilai != null) {
+                        System.out.println("Menilai tugas dari " + dinilai.nama);
                         System.out.print("Nilai tugas: ");
                         int nilai = scan.nextInt();
-                        mhsPop.tugasDinilai(nilai);
-                        System.out.print("Nilai dalam biner: ");
-                        konversiDesimalKeBiner(nilai);
-                        mhsPop.tampil();
+                        dinilai.tugasDinilai(nilai);
+                        System.out.printf("Nilai tugas %s adalah %d\n", dinilai.nama, nilai);
+                        String biner = stack.konversiDesimalKeBiner(nilai);
+                        System.out.print("Nilai dalam biner: " + biner);
                     }
                     break;
                 case 3:
@@ -51,24 +50,9 @@ public class MahasiswaDemo25 {
                     Mahasiswa25 bawah = stack.bottom();
                     if (bawah != null) bawah.tampil();
                     break;
-                case 5:
-                    stack.print();
-                    break;
-                case 6:
-                    System.out.println("Jumlah tugas: " + stack.count());
-                    break;
             }
         } while (pilih != 0);
 
         scan.close();
-    }
-
-    public static void konversiDesimalKeBiner(int kode) {
-        StackKonversi25 stack = new StackKonversi25(20);
-        while (kode > 0) {
-            stack.push(kode % 2);
-            kode /= 2;
-        }
-        stack.print();
     }
 }

@@ -5,8 +5,8 @@ public class StackKonversi25 {
     int top;
     int size;
 
-    public StackKonversi25(int size) {
-        this.size = size;
+    public StackKonversi25() {
+        this.size = 32;
         stack = new int[size];
         top = -1;
     }
