@@ -77,4 +77,109 @@ public class SingleLinkedList25 {
             }
         }
     }
+
+    public Mahasiswa25 get(int index) {
+        Node25 tmp = head;
+        int i = 0;
+        while (tmp != null) {
+            if (i == index) {
+                return tmp.data;
+            }
+            tmp = tmp.next;
+            i++;
+        }
+        return null;
+    }
+    
+    public int indexOf(String nama) {
+        Node25 tmp = head;
+        int index = 0;
+        while (tmp != null) {
+            if (tmp.data.nama.equalsIgnoreCase(nama)) {
+                return index;
+            }
+            tmp = tmp.next;
+            index++;
+        }
+        return -1;
+    }
+    
+    public void removeFirst() {
+        if (!isEmpty()) {
+            head = head.next;
+            if (head == null) {
+                tail = null;
+            }
+        } else {
+            System.out.println("Linked list kosong, tidak bisa menghapus.");
+        }
+    }
+    
+    public void removeLast() {
+        if (!isEmpty()) {
+            if (head == tail) {
+                head = tail = null;
+            } else {
+                Node25 tmp = head;
+                while (tmp.next != tail) {
+                    tmp = tmp.next;
+                }
+                tmp.next = null;
+                tail = tmp;
+            }
+        } else {
+            System.out.println("Linked list kosong.");
+        }
+    }
+    
+    public void removeByKey(String nim) {
+        if (!isEmpty()) {
+            if (head.data.nim.equals(nim)) {
+                removeFirst();
+                return;
+            }
+    
+            Node25 prev = head;
+            Node25 curr = head.next;
+    
+            while (curr != null && !curr.data.nim.equals(nim)) {
+                prev = curr;
+                curr = curr.next;
+            }
+    
+            if (curr != null) {
+                prev.next = curr.next;
+                if (curr == tail) {
+                    tail = prev;
+                }
+            } else {
+                System.out.println("Data dengan NIM " + nim + " tidak ditemukan.");
+            }
+        } else {
+            System.out.println("Linked list kosong.");
+        }
+    }
+
+    public void removeAt(int index) {
+        if (index == 0) {
+            removeFirst();
+        } else {
+            Node25 prev = head;
+            for (int i = 1; i < index && prev.next != null; i++) {
+                prev = prev.next;
+            }
+
+            if (prev.next != null) {
+                Node25 removed = prev.next;
+                prev.next = removed.next;
+                if (removed == tail) {
+                    tail = prev;
+                }
+            } else {
+                System.out.println("Index di luar jangkauan.");
+            }
+        }
+    }
+
 }
+ 

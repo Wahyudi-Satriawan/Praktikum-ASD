@@ -1,10 +1,10 @@
 package Jobsheet11;
 
-import java.util.Scanner;
+//import java.util.Scanner;
 
 public class SLLMain25 {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        //Scanner sc = new Scanner(System.in);
         SingleLinkedList25 list = new SingleLinkedList25();
 
         Mahasiswa25 mhs1 = new Mahasiswa25("23001", "Alvaro", "1A", 3.75);
@@ -22,6 +22,7 @@ public class SLLMain25 {
         list.InsertAt(2, mhs2);
         list.print();
 
+/*/
         boolean cek = true;
         while (cek) {
             System.out.print("NIM   : ");
@@ -43,6 +44,17 @@ public class SLLMain25 {
             }
         }
         sc.close();
+*/
+
+        System.out.println("data index 1: ");
+        list.get(1);
+        System.out.println("data mahasiswa an Bimon berada pada index: "+ list.indexOf("Bimon"));
+        System.out.println();
+        list.removeFirst();
+        list.removeLast();
+        list.print();
+        list.removeAt(0);
+        list.print();
     }
 }
 
